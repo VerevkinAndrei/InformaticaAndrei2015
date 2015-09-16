@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+
+    int arr[9];
+    //arr[0]={3};
+    for (int n=0; n<=9; n++)
+    {
+    cout << arr[n]<<endl;
+
+    }
+
+
+    //cout << "hello" <<endl;
+    return 0;
+}
