@@ -33,12 +33,18 @@ int main(int argc, char *argv[])
     return 0;
 }*/
 
+
+const double alpha = 0.1;
+
 double f(double x)
 {
-    const double alpha = 0.1;
     return sin(x) - alpha*x;
 }
 
+double df(double x)
+{
+    return cos(x) - alpha;
+}
 
 double dichotomy (
         double x1,
@@ -60,10 +66,26 @@ double dichotomy (
 }
 
 
+double newton (double x0, double tolerance)
+{
+    double x=x0;
+    double dx;
+    do
+    {
+        dx = -f(x)/df(x);
+        x+=dx;
+
+    }
+    while(fabs(dx)>tolerance);
+
+    return x;
+}
+
 int main(int argc, char *argv[])
 {
     double pi = 2*asin(1);
     cout << dichotomy(pi/2, 3*pi/2, 0.001) << endl;
+    cout << newton(pi, 1e-7) << endl;
     return 0;
 }
 
